@@ -38,6 +38,7 @@ int hashCreate(char szFileNm[], HashHeader *pHashHeader){
   return RC_OK;
 }
 
+//opens the hash file specified
 FILE *hashOpen(char szFileNm[], HashHeader *pHashHeader){
   int rcFseek;
   int iReadHeader;
