@@ -9,7 +9,6 @@
 
 
 int hashCreate(char szFileNm[], HashHeader *pHashHeader){
-  int rcFseek;
   int iWriteToHash;
   FILE *pHashFile;
 
@@ -38,8 +37,8 @@ int hashCreate(char szFileNm[], HashHeader *pHashHeader){
 
 //opens the hash file specified
 FILE *hashOpen(char szFileNm[], HashHeader *pHashHeader){
-  int rcFseek;
   int iReadHeader;
+  HashHeader *pTempHeader;
   FILE *pHashOpenFile;
 
   pHashOpenFile = fopen(szFileNm, "rb");
@@ -48,7 +47,8 @@ FILE *hashOpen(char szFileNm[], HashHeader *pHashHeader){
     return NULL;
   }
 
-  iReadHeader = fread(&pHashHeader, sizeof(HashHeader), 1L, pHashOpenFile);
+  iReadHeader = fread(&pTempHeader, sizeof(HashHeader), 1L, pHashOpenFile);
+  *pHashHeader = *pTempHeader;
   if(iReadHeader == 1){
     return pHashOpenFile;
   }
