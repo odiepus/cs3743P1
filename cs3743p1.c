@@ -21,21 +21,20 @@ int hashCreate(char szFileNm[], HashHeader *pHashHeader){
     if (pHashFile == NULL){
       errExit("Failed to created file");
     }
+
+    pHashHeader->iHighOverflowRBN = pHashHeader->iNumPrimary;
+    rcFseek = fseek(pHashFile, 0, SEEK_SET);
+    assert(rcFseek == 0);
+
+    iWriteToHash = fwrite(&pHashHeader, sizeof(HashHeader), 1L, pHashFile);
+    assert(iWriteToHash == 1);
+
+    fclose(pHashFile);
+
+    return RC_OK;
   }
-  else{
-    return RC_FILE_EXISTS;
-  }
 
-  pHashHeader->iHighOverflowRBN = pHashHeader->iNumPrimary;
-  rcFseek = fseek(pHashFile, 0, SEEK_SET);
-  assert(rcFseek == 0);
-
-  iWriteToHash = fwrite(&pHashHeader, sizeof(HashHeader), 1L, pHashFile);
-  assert(iWriteToHash == 1);
-
-  fclose(pHashFile);
-
-  return RC_OK;
+  return RC_FILE_EXISTS;
 }
 
 //opens the hash file specified
