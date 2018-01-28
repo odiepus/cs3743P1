@@ -4,26 +4,26 @@
 Purpose:
     This program demonstrates a Hash File.  In the next
     part of this program, we will use overflow chaining.
-    It uses a stream input command file to test the various
+    It uses a stream input command file to test the various 
     functions written by the students.
 Command Parameters:
     p1 < infile > outfile
-    The stream input file contains commands.  There are commands
+    The stream input file contains commands.  There are commands 
     which specify create, open, insert, read, and dump.
-
+   
     Commands in the input file:
-
-    * comment
+    
+    * comment       
         This is just a comment which helps explain what is being tested.
-
-    CREATE BOOK fileName numPrimary
+    
+    CREATE BOOK fileName numPrimary   
         Create the specified hash file if it doesn't already exist
         using hashCreate.
         The file will have numPrimary records in the primary area.
         Record 0 contains information about this hash file.
         The size of each record is the size of a Book structure.
-
-    OPEN BOOK fileName
+        
+    OPEN BOOK fileName 
         Opens the specified file using hashOpen.  Place the returned
         FILE pointer in the driver's HashFile array.
     INSERT BOOK bookId,title,publisher,subject,pages
@@ -39,18 +39,18 @@ Command Parameters:
 Results:
     All output is written to stdout.
     Prints each of the commands and their command parameters.  Some of the commands
-    print information:
+    print information:  
         CREATE - prints the record size
         INSERT - prints the primary RBN
         READ   - prints the book information (if found)
-        INSERT - prints the RBN.
+        INSERT - prints the RBN. 
 
 Returns:
     0       Normal
     99      Processing Error
 
 Notes:
-
+   
 **********************************************************************/
 // If compiling using visual studio, tell the compiler not to give its warnings
 // about the safety of scanf and printf
@@ -77,7 +77,7 @@ int main(int argc, char *argv[])
 {
     // Process commands for manipulating hash files
     processCommands(stdin);
-    printf("\n");
+    printf("\n");   
     return 0;
 }
 
@@ -90,7 +90,7 @@ Parameters:
     I FILE *pfileCommand    command stream input
 Notes:
     This calls functions inside:
-        cs3723p1
+        cs3723p1 
 **************************************************************************/
 void processCommands(FILE *pfileCommand)
 {
@@ -98,7 +98,7 @@ void processCommands(FILE *pfileCommand)
     char szInputBuffer[MAX_BUFFER_SZ+1];    // input buffer for a single text line
     char szCommand[MAX_TOKEN_SIZE + 1];     // command
     int bGotToken;                          // TRUE if getSimpleToken got a token
-    int iBufferPosition;                    // This is used by getSimpleToken to
+    int iBufferPosition;                    // This is used by getSimpleToken to 
                                             // track parsing position within input buffer
     int iScanfCnt;                          // number of values returned by sscanf
     int rc;                                 // return code from functions
@@ -131,7 +131,7 @@ void processCommands(FILE *pfileCommand)
 
         // Process each type of input command
         if (strcmp(szCommand, "CREATE") == 0)
-        { // CREATE BOOK fileName numPrimary
+        { // CREATE BOOK fileName numPrimary 
             iScanfCnt = sscanf(&szInputBuffer[iBufferPosition]
                 , "%10s %30s %d"
                 , szHashContent
@@ -147,7 +147,7 @@ void processCommands(FILE *pfileCommand)
                 printRC(rc);
         }
         else if (strcmp(szCommand, "OPEN") == 0)
-        { // OPEN BOOK fileName
+        { // OPEN BOOK fileName 
             iScanfCnt = sscanf(&szInputBuffer[iBufferPosition]
                 , "%10s %30s"
                 , szHashContent
@@ -224,7 +224,7 @@ void processCommands(FILE *pfileCommand)
 /******************** hash **************************************
   int hash(char szKey[],HashHeader *pHashHeader)
 Purpose:
-    Hashes a key to return an RBN between 1 and pHashHeader->iNumPrimary
+    Hashes a key to return an RBN between 1 and pHashHeader->iNumPrimary 
     (inclusive).
 Parameters:
     I   char szKey[]              key to be hashed
@@ -233,10 +233,10 @@ Returns:
     Returns a hash value into the primary area.  This value is between 1
     and pHashHeader->iNumPrimary
 Notes:
-    - Primary area of the hash table has subscripts from 1 to
+    - Primary area of the hash table has subscripts from 1 to 
       pHashHeader->iNumPrimary.
     - Overflow area begins with pHashHeader->iNumPrimary + 1.
-    - The hash function is average at spreading the values.
+    - The hash function is average at spreading the values.  
 **************************************************************************/
 int hash(char szKey[],HashHeader *pHashHeader)
 {
@@ -247,13 +247,13 @@ int hash(char szKey[],HashHeader *pHashHeader)
         iHash += szKey[i];
     }
     // restrict it to the primary area
-    iHash = iHash % abs(pHashHeader->iNumPrimary) +1;
+    iHash = iHash % abs(pHashHeader->iNumPrimary) +1; 
     return iHash;
 }
 /******************** hashDump **************************************
   int hashDump(char szHashContent[], char szFileNm[]))
 Purpose:
-    Prints the contents of the specified hash file.
+    Prints the contents of the specified hash file. 
 Parameters:
     I   char szHashContent[]          hash file content type
     I   char szFileNm[]               hash file name
@@ -262,14 +262,14 @@ Returns:
     RC_FILE_NOT_FOUND - file not found
     RC_BAD_REC_SIZE - bad record size
 Notes:
-    - Primary area of the hash table has subscripts from 1 to
+    - Primary area of the hash table has subscripts from 1 to 
       pHashHeader->iNumPrimary.
     - Overflow area begins with pHashHeader->iNumPrimary + 1.
 **************************************************************************/
 
 int hashDump(char szHashContent[], char szFileNm[])
 {
-    // variables used for the buffer passed to hexdump
+    // variables used for the buffer passed to hexdump 
     int iBytesPerLine = 40;                 // number of bytes to be displayed per line
                                             // by hexDump
     int iBytesToSend = 0;                   // number of bytes sent to hexDump
@@ -388,19 +388,19 @@ void printRC(int rc)
 }
 /******************** getSimpleToken **************************************
  int getSimpleToken(char szInput[], char szDelims[]
-     , int *piBufferPosition, char szToken[])
+     , int *piBufferPosition, char szToken[]) 
 Purpose:
-    Returns the next token in a string.  The delimiter(s) for the token is
-    passed as a parameter.  To help positioning for a subsequent call, it
+    Returns the next token in a string.  The delimiter(s) for the token is  
+    passed as a parameter.  To help positioning for a subsequent call, it 
     also returns the next position in the buffer.
 Parameters:
     I   char szInput[]          input buffer to be parsed
     I   char szDelims[]         delimiters for tokens
     I/O int *piBufferPosition   Position to begin looking for the next token.
-                                This is also used to return the next
+                                This is also used to return the next 
                                 position to look for a token (which will
                                 follow the delimiter).
-    O   char szToken[]          Returned token.
+    O   char szToken[]          Returned token.  
 Returns:
     Functionally:
         TRUE - a token is returned
@@ -412,11 +412,11 @@ Notes:
 **************************************************************************/
 
 int getSimpleToken(char szInput[], const char szDelims[]
-    , int *piBufferPosition, char szToken[])
+    , int *piBufferPosition, char szToken[]) 
 {
     int iDelimPos;                      // found position of delim
     int iCopy;                          // number of characters to copy
-
+    
     // check for past the end of the string
     if (*piBufferPosition >= (int) strlen(szInput))
     {
@@ -432,13 +432,13 @@ int getSimpleToken(char szInput[], const char szDelims[]
         iCopy = MAX_TOKEN_SIZE;             // truncated size
     else
         iCopy = iDelimPos;
-
+    
     // copy the token into the target token variable
     memcpy(szToken, &szInput[*piBufferPosition], iCopy);
     szToken[iCopy] = '\0';              // null terminate
 
     // advance the position
-    *piBufferPosition += iDelimPos + 1;
+    *piBufferPosition += iDelimPos + 1;  
     return TRUE;
 }
 
@@ -446,22 +446,22 @@ int getSimpleToken(char szInput[], const char szDelims[]
   void errExit(const char szFmt[], ... )
 Purpose:
     Prints an error message defined by the printf-like szFmt and the
-    corresponding arguments to that function.  The number of
+    corresponding arguments to that function.  The number of 
     arguments after szFmt varies dependent on the format codes in
-    szFmt.
+    szFmt.  
     It also exits the program.
 Parameters:
     I   const char szFmt[]      This contains the message to be printed
-                                and format codes (just like printf) for
+                                and format codes (just like printf) for 
                                 values that we want to print.
     I   ...                     A variable-number of additional arguments
                                 which correspond to what is needed
-                                by the format codes in szFmt.
+                                by the format codes in szFmt. 
 Returns:
     Exits the program with a return code of ERROR_PROCESSING (99).
 Notes:
-    - Prints "ERROR: " followed by the formatted error message specified
-      in szFmt.
+    - Prints "ERROR: " followed by the formatted error message specified 
+      in szFmt. 
     - Requires including <stdarg.h>
 **************************************************************************/
 void errExit(const char szFmt[], ... )
@@ -474,7 +474,7 @@ void errExit(const char szFmt[], ... )
                                 // va_list argument
     va_end(args);               // let the C environment know we are finished with the
                                 // va_list argument
-    printf("\n");
+    printf("\n"); 
     exit(ERROR_PROCESSING);
 }
 

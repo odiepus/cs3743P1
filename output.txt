@@ -375,7 +375,7 @@ cs3743p1.h:74:29: error: expected declaration specifiers or ‘...’ before ‘
 cs3743p1.h:75:27: error: expected declaration specifiers or ‘...’ before ‘HashHeader’
  int bookRead(FILE *pFile, HashHeader *pHashHeader, Book *pBook);
                            ^
-cs3743p1.c:12:33: error: expected declaration specifiers or ‘...’ before ‘HashHeader’
+cs3743p1.c:11:33: error: expected declaration specifiers or ‘...’ before ‘HashHeader’
  int hashCreate(char szFileNm[], HashHeader *pHashHeader){
                                  ^
 cs3743p1.c:40:1: error: expected identifier or ‘(’ before ‘/’ token
@@ -386,33 +386,33 @@ cs3743p1.c: In function ‘readRec’:
 cs3743p1.h:27:34: error: expected expression before ‘/’ token
  #define RC_LOC_NOT_FOUND    6   // Location not found for read
                                   ^
-cs3743p1.c:72:10: note: in expansion of macro ‘RC_LOC_NOT_FOUND’
+cs3743p1.c:74:10: note: in expansion of macro ‘RC_LOC_NOT_FOUND’
    return RC_LOC_NOT_FOUND;
           ^
-cs3743p1.c:62:55: warning: unused parameter ‘iRecSize’ [-Wunused-parameter]
+cs3743p1.c:64:55: warning: unused parameter ‘iRecSize’ [-Wunused-parameter]
  int readRec(FILE *pFile, int iRBN, void *pRecord, int iRecSize){
                                                        ^
 cs3743p1.c: In function ‘writeRec’:
-cs3743p1.c:79:20: warning: unused parameter ‘pFile’ [-Wunused-parameter]
+cs3743p1.c:81:20: warning: unused parameter ‘pFile’ [-Wunused-parameter]
  int writeRec(FILE *pFile, int iRBN, void *pRecord, int iRecSize){
                     ^
-cs3743p1.c:79:31: warning: unused parameter ‘iRBN’ [-Wunused-parameter]
+cs3743p1.c:81:31: warning: unused parameter ‘iRBN’ [-Wunused-parameter]
  int writeRec(FILE *pFile, int iRBN, void *pRecord, int iRecSize){
                                ^
-cs3743p1.c:79:43: warning: unused parameter ‘pRecord’ [-Wunused-parameter]
+cs3743p1.c:81:43: warning: unused parameter ‘pRecord’ [-Wunused-parameter]
  int writeRec(FILE *pFile, int iRBN, void *pRecord, int iRecSize){
                                            ^
-cs3743p1.c:79:56: warning: unused parameter ‘iRecSize’ [-Wunused-parameter]
+cs3743p1.c:81:56: warning: unused parameter ‘iRecSize’ [-Wunused-parameter]
  int writeRec(FILE *pFile, int iRBN, void *pRecord, int iRecSize){
                                                         ^
 cs3743p1.c: At top level:
-cs3743p1.c:84:29: error: expected declaration specifiers or ‘...’ before ‘HashHeader’
+cs3743p1.c:86:29: error: expected declaration specifiers or ‘...’ before ‘HashHeader’
  int bookInsert(FILE *pFile, HashHeader *pHashHeader, Book *pBook){
                              ^
-cs3743p1.c:89:27: error: expected declaration specifiers or ‘...’ before ‘HashHeader’
+cs3743p1.c:91:27: error: expected declaration specifiers or ‘...’ before ‘HashHeader’
  int bookRead(FILE *pFile, HashHeader *pHashHeader, Book *pBook){
                            ^
 cs3743p1.c: In function ‘readRec’:
-cs3743p1.c:77:1: warning: control reaches end of non-void function [-Wreturn-type]
+cs3743p1.c:79:1: warning: control reaches end of non-void function [-Wreturn-type]
  }
  ^

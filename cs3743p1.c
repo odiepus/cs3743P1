@@ -7,7 +7,6 @@
 #include "cs3743p1.h"
 
 
-FILE *pHashFile;
 
 int hashCreate(char szFileNm[], HashHeader *pHashHeader){
   int rcFseek;
@@ -42,20 +41,20 @@ int hashCreate(char szFileNm[], HashHeader *pHashHeader){
 FILE *hashOpen(char szFileNm[], HashHeader *pHashHeader){
   int rcFseek;
   int iReadHeader;
-  FILE *pHashFile;
+  FILE *pHashOpenFile;
 
-  pHashFile = fopen(szFileNm, "r");
+  pHashOpenFile = fopen(szFileNm, "r");
 
-  if (pHashFile == NULL){
+  if (pHashOpenFile == NULL){
     return NULL;
   }
 
-  rcFseek = fseek(pHashFile, 0, SEEK_SET);
+  rcFseek = fseek(pHashOpenFile, 0, SEEK_SET);
   assert(rcFseek == 0);
 
-  iReadHeader = fread(&pHashHeader, sizeof(HashHeader), 1L, pHashFile);
+  iReadHeader = fread(&pHashHeader, sizeof(HashHeader), 1L, pHashOpenFile);
   if(iReadHeader == 1){
-    return pHashFile;
+    return pHashOpenFile;
   }
   else{
     return NULL;
@@ -71,12 +70,11 @@ int readRec(FILE *pFile, int iRBN, void *pRecord, int iRecSize){
 
 	iReadRec = fread(&pRecord, sizeof(&pRecord), 1L, pFile);
 
-	if (iReadRec != 1){
-		return RC_LOC_NOT_FOUND;
-	}
-	else if (iReadRec == 1){
+	if (iReadRec == 1){
 		return RC_OK;
 	}
+
+  return RC_LOC_NOT_FOUND;
 }
 
 int writeRec(FILE *pFile, int iRBN, void *pRecord, int iRecSize){
