@@ -75,8 +75,6 @@ int readRec(FILE *pFile, int iRBN, void *pRecord, int iRecSize){
 	else if (iReadRec == 1){
 		return RC_OK;
 	}
-
-  return 0;
 }
 
 int writeRec(FILE *pFile, int iRBN, void *pRecord, int iRecSize){
