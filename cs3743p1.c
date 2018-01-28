@@ -61,6 +61,20 @@ FILE *hashOpen(char szFileNm[], HashHeader *pHashHeader){
 }
 
 int readRec(FILE *pFile, int iRBN, void *pRecord, int iRecSize){
+	int iReadRec;
+	int rcFseek;
+
+	rcFseek = fseek(pFile, iRBN, SEEK_SET);
+	assert(rcFseek == 0);
+
+	iReadRec = fread(&pRecord, sizeof(&pRecord), 1L, pFile);
+
+	if (iReadRec != 1){
+		return RC_LOC_NOT_FOUND;
+	}
+	else if (iReadRec == 1){
+		return RC_OK;
+	}
 
   return 0;
 }
