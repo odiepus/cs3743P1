@@ -12,6 +12,7 @@ FILE *pHashFile;
 int hashCreate(char szFileNm[], HashHeader *pHashHeader){
   int rcFseek;
   int iWriteToHash;
+  FILE *pHashFile;
 
   pHashFile = fopen(szFileNm, "r");
 
@@ -41,6 +42,8 @@ int hashCreate(char szFileNm[], HashHeader *pHashHeader){
 FILE *hashOpen(char szFileNm[], HashHeader *pHashHeader){
   int rcFseek;
   int iReadHeader;
+  FILE *pHashFile;
+
   pHashFile = fopen(szFileNm, "r");
 
   if (pHashFile == NULL){

@@ -1,0 +1,418 @@
+cs3743p1Driver.c:55:1: error: expected identifier or ‘(’ before ‘/’ token
+ // If compiling using visual studio, tell the compiler not to give its warnings
+ ^
+In file included from /usr/include/stdio.h:74:0,
+                 from cs3743p1Driver.c:59:
+/usr/include/libio.h:306:3: error: unknown type name ‘size_t’
+   size_t __pad5;
+   ^
+/usr/include/libio.h:310:67: error: ‘size_t’ undeclared here (not in a function)
+   char _unused2[15 * sizeof (int) - 4 * sizeof (void *) - sizeof (size_t)];
+                                                                   ^
+/usr/include/libio.h:338:62: error: expected declaration specifiers or ‘...’ before ‘size_t’
+ typedef __ssize_t __io_read_fn (void *__cookie, char *__buf, size_t __nbytes);
+                                                              ^
+/usr/include/libio.h:347:6: error: expected declaration specifiers or ‘...’ before ‘size_t’
+      size_t __n);
+      ^
+/usr/include/libio.h:469:19: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘_IO_sgetn’
+ extern _IO_size_t _IO_sgetn (_IO_FILE *, void *, _IO_size_t);
+                   ^
+In file included from cs3743p1Driver.c:59:0:
+/usr/include/stdio.h:337:20: error: expected declaration specifiers or ‘...’ before ‘size_t’
+       int __modes, size_t __n) __THROW;
+                    ^
+/usr/include/stdio.h:709:15: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘fread’
+ extern size_t fread (void *__restrict __ptr, size_t __size,
+               ^
+/usr/include/stdio.h:715:15: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘fwrite’
+ extern size_t fwrite (const void *__restrict __ptr, size_t __size,
+               ^
+In file included from cs3743p1Driver.c:60:0:
+/usr/include/string.h:43:8: error: expected declaration specifiers or ‘...’ before ‘size_t’
+        size_t __n) __THROW __nonnull ((1, 2));
+        ^
+/usr/include/string.h:46:56: error: expected declaration specifiers or ‘...’ before ‘size_t’
+ extern void *memmove (void *__dest, const void *__src, size_t __n)
+                                                        ^
+/usr/include/string.h:62:42: error: expected declaration specifiers or ‘...’ before ‘size_t’
+ extern void *memset (void *__s, int __c, size_t __n) __THROW __nonnull ((1));
+                                          ^
+/usr/include/string.h:65:56: error: expected declaration specifiers or ‘...’ before ‘size_t’
+ extern int memcmp (const void *__s1, const void *__s2, size_t __n)
+                                                        ^
+/usr/include/string.h:92:48: error: expected declaration specifiers or ‘...’ before ‘size_t’
+ extern void *memchr (const void *__s, int __c, size_t __n)
+                                                ^
+/usr/include/string.h:129:39: error: expected declaration specifiers or ‘...’ before ‘size_t’
+         const char *__restrict __src, size_t __n)
+                                       ^
+/usr/include/string.h:137:9: error: expected declaration specifiers or ‘...’ before ‘size_t’
+         size_t __n) __THROW __nonnull ((1, 2));
+         ^
+/usr/include/string.h:143:57: error: expected declaration specifiers or ‘...’ before ‘size_t’
+ extern int strncmp (const char *__s1, const char *__s2, size_t __n)
+                                                         ^
+/usr/include/string.h:150:15: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘strxfrm’
+ extern size_t strxfrm (char *__restrict __dest,
+               ^
+/usr/include/string.h:280:15: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘strcspn’
+ extern size_t strcspn (const char *__s, const char *__reject)
+               ^
+/usr/include/string.h:284:15: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘strspn’
+ extern size_t strspn (const char *__s, const char *__accept)
+               ^
+/usr/include/string.h:394:15: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘strlen’
+ extern size_t strlen (const char *__s)
+               ^
+/usr/include/string.h:446:33: error: expected declaration specifiers or ‘...’ before ‘size_t’
+ extern void __bzero (void *__s, size_t __n) __THROW __nonnull ((1));
+                                 ^
+In file included from cs3743p1Driver.c:62:0:
+/usr/include/stdlib.h:139:15: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__ctype_get_mb_cur_max’
+ extern size_t __ctype_get_mb_cur_max (void) __THROW __wur;
+               ^
+/usr/include/stdlib.h:466:22: error: expected declaration specifiers or ‘...’ before ‘size_t’
+ extern void *malloc (size_t __size) __THROW __attribute_malloc__ __wur;
+                      ^
+/usr/include/stdlib.h:468:22: error: expected declaration specifiers or ‘...’ before ‘size_t’
+ extern void *calloc (size_t __nmemb, size_t __size)
+                      ^
+/usr/include/stdlib.h:468:38: error: expected declaration specifiers or ‘...’ before ‘size_t’
+ extern void *calloc (size_t __nmemb, size_t __size)
+                                      ^
+/usr/include/stdlib.h:480:36: error: expected declaration specifiers or ‘...’ before ‘size_t’
+ extern void *realloc (void *__ptr, size_t __size)
+                                    ^
+/usr/include/stdlib.h:755:9: error: expected declaration specifiers or ‘...’ before ‘size_t’
+         size_t __nmemb, size_t __size, __compar_fn_t __compar)
+         ^
+/usr/include/stdlib.h:755:25: error: expected declaration specifiers or ‘...’ before ‘size_t’
+         size_t __nmemb, size_t __size, __compar_fn_t __compar)
+                         ^
+/usr/include/stdlib.h:764:34: error: expected declaration specifiers or ‘...’ before ‘size_t’
+ extern void qsort (void *__base, size_t __nmemb, size_t __size,
+                                  ^
+/usr/include/stdlib.h:764:50: error: expected declaration specifiers or ‘...’ before ‘size_t’
+ extern void qsort (void *__base, size_t __nmemb, size_t __size,
+                                                  ^
+/usr/include/stdlib.h:862:36: error: expected declaration specifiers or ‘...’ before ‘size_t’
+ extern int mblen (const char *__s, size_t __n) __THROW;
+                                    ^
+/usr/include/stdlib.h:866:34: error: expected declaration specifiers or ‘...’ before ‘size_t’
+      const char *__restrict __s, size_t __n) __THROW;
+                                  ^
+/usr/include/stdlib.h:873:15: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘mbstowcs’
+ extern size_t mbstowcs (wchar_t *__restrict  __pwcs,
+               ^
+/usr/include/stdlib.h:876:15: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘wcstombs’
+ extern size_t wcstombs (char *__restrict __s,
+               ^
+In file included from cs3743p1Driver.c:64:0:
+cs3743p1.h:34:1: error: expected identifier or ‘(’ before ‘/’ token
+ // HashHeader structure for record at RBN 0. 
+ ^
+cs3743p1.h:43:48: warning: missing terminating ' character [enabled by default]
+                             // area.  (This isn't the number of
+                                                ^
+cs3743p1.h:43:29: error: missing terminating ' character
+                             // area.  (This isn't the number of
+                             ^
+cs3743p1.h:51:3: warning: data definition has no type or storage class [enabled by default]
+ } HashHeader;
+   ^
+cs3743p1.h:51:3: warning: type defaults to ‘int’ in declaration of ‘HashHeader’ [-Wimplicit-int]
+cs3743p1.h:54:29: error: expected specifier-qualifier-list before ‘/’ token
+     int  iNextChain;        // RBN of next synonym
+                             ^
+cs3743p1.h:63:1: error: expected identifier or ‘(’ before ‘/’ token
+ // Driver functions that the student can use
+ ^
+cs3743p1.h:65:24: error: expected declaration specifiers or ‘...’ before ‘HashHeader’
+ int hash(char szKey[], HashHeader *pHashHeader);
+                        ^
+cs3743p1.h:69:1: error: expected identifier or ‘(’ before ‘/’ token
+ // Functions written by the student
+ ^
+cs3743p1.h:71:33: error: expected declaration specifiers or ‘...’ before ‘HashHeader’
+ FILE *hashOpen(char szFileNm[], HashHeader *pHashHeader);
+                                 ^
+cs3743p1.h:74:29: error: expected declaration specifiers or ‘...’ before ‘HashHeader’
+ int bookInsert(FILE *pFile, HashHeader *pHashHeader, Book *pBook);
+                             ^
+cs3743p1.h:75:27: error: expected declaration specifiers or ‘...’ before ‘HashHeader’
+ int bookRead(FILE *pFile, HashHeader *pHashHeader, Book *pBook);
+                           ^
+cs3743p1Driver.c:70:1: error: expected identifier or ‘(’ before ‘/’ token
+ // prototypes only used by the driver
+ ^
+cs3743p1Driver.c: In function ‘main’:
+cs3743p1Driver.c:78:5: error: expected expression before ‘/’ token
+     // Process commands for manipulating hash files
+     ^
+cs3743p1Driver.c:76:14: warning: unused parameter ‘argc’ [-Wunused-parameter]
+ int main(int argc, char *argv[])
+              ^
+cs3743p1Driver.c:76:26: warning: unused parameter ‘argv’ [-Wunused-parameter]
+ int main(int argc, char *argv[])
+                          ^
+cs3743p1Driver.c: In function ‘processCommands’:
+cs3743p1Driver.c:97:5: error: expected expression before ‘/’ token
+     // variables for command processing
+     ^
+cs3743p1Driver.c:98:45: error: expected expression before ‘/’ token
+     char szInputBuffer[MAX_BUFFER_SZ+1];    // input buffer for a single text line
+                                             ^
+cs3743p1Driver.c:99:45: error: expected expression before ‘/’ token
+     char szCommand[MAX_TOKEN_SIZE + 1];     // command
+                                             ^
+cs3743p1Driver.c:100:45: error: expected expression before ‘/’ token
+     int bGotToken;                          // TRUE if getSimpleToken got a token
+                                             ^
+cs3743p1Driver.c:101:45: error: expected expression before ‘/’ token
+     int iBufferPosition;                    // This is used by getSimpleToken to
+                                             ^
+cs3743p1Driver.c:103:45: error: expected expression before ‘/’ token
+     int iScanfCnt;                          // number of values returned by sscanf
+                                             ^
+cs3743p1Driver.c:104:45: error: expected expression before ‘/’ token
+     int rc;                                 // return code from functions
+                                             ^
+cs3743p1Driver.c:105:45: error: expected expression before ‘/’ token
+     Book book;                              // Book structure used by functions
+                                             ^
+cs3743p1Driver.c:106:45: error: expected expression before ‘/’ token
+     HashHeader hashHeader;                  // hash file header record
+                                             ^
+cs3743p1Driver.c:107:45: error: expected expression before ‘/’ token
+     char szHashContent[11];                 // content type for hash file (e.g., BOOK)
+                                             ^
+cs3743p1Driver.c:108:45: error: expected expression before ‘/’ token
+     char szFileNm[31];                      // Hash File Nm
+                                             ^
+cs3743p1Driver.c:109:45: error: expected expression before ‘/’ token
+     FILE *pBookFile;                        // file pointer to Book hash file
+                                             ^
+cs3743p1Driver.c:95:28: warning: unused parameter ‘pfileCommand’ [-Wunused-parameter]
+ void processCommands(FILE *pfileCommand)
+                            ^
+cs3743p1Driver.c: At top level:
+cs3743p1Driver.c:241:23: error: expected declaration specifiers or ‘...’ before ‘HashHeader’
+ int hash(char szKey[],HashHeader *pHashHeader)
+                       ^
+cs3743p1Driver.c: In function ‘hashDump’:
+cs3743p1Driver.c:272:5: error: expected expression before ‘/’ token
+     // variables used for the buffer passed to hexdump
+     ^
+cs3743p1Driver.c:273:45: error: expected expression before ‘/’ token
+     int iBytesPerLine = 40;                 // number of bytes to be displayed per line
+                                             ^
+cs3743p1Driver.c:275:45: error: expected expression before ‘/’ token
+     int iBytesToSend = 0;                   // number of bytes sent to hexDump
+                                             ^
+cs3743p1Driver.c:276:45: error: expected expression before ‘/’ token
+     int iLines = 0;                         // number of lines returned from hexDump
+                                             ^
+cs3743p1Driver.c:284:5: warning: statement with no effect [-Wunused-value]
+     HashHeader hashHeader;
+     ^
+cs3743p1Driver.c:284:16: error: expected ‘;’ before ‘hashHeader’
+     HashHeader hashHeader;
+                ^
+cs3743p1Driver.c:285:5: warning: ISO C90 forbids mixed declarations and code [-Wpedantic]
+     long lRBA;
+     ^
+cs3743p1Driver.c:289:5: error: expected expression before ‘/’ token
+     // open the hash file
+     ^
+cs3743p1Driver.c:291:5: warning: implicit declaration of function ‘hashOpen’ [-Wimplicit-function-declaration]
+     pHash = hashOpen(szFileNm, &hashHeader);
+     ^
+cs3743p1Driver.c:291:33: error: ‘hashHeader’ undeclared (first use in this function)
+     pHash = hashOpen(szFileNm, &hashHeader);
+                                 ^
+cs3743p1Driver.c:291:33: note: each undeclared identifier is reported only once for each function it appears in
+In file included from cs3743p1Driver.c:64:0:
+cs3743p1.h:25:34: error: expected expression before ‘/’ token
+ #define RC_FILE_NOT_FOUND   4   // file not found or invalid info record
+                                  ^
+cs3743p1Driver.c:293:16: note: in expansion of macro ‘RC_FILE_NOT_FOUND’
+         return RC_FILE_NOT_FOUND;
+                ^
+cs3743p1Driver.c:295:5: error: expected expression before ‘/’ token
+     // print the Hash Header
+     ^
+In file included from cs3743p1Driver.c:64:0:
+cs3743p1.h:26:34: error: expected expression before ‘/’ token
+ #define RC_BAD_REC_SIZE     5   // invalid record size in info record
+                                  ^
+cs3743p1Driver.c:301:16: note: in expansion of macro ‘RC_BAD_REC_SIZE’
+         return RC_BAD_REC_SIZE;
+                ^
+cs3743p1Driver.c:303:5: error: expected expression before ‘/’ token
+     // locate the first record
+     ^
+cs3743p1Driver.c:308:5: warning: implicit declaration of function ‘fread’ [-Wimplicit-function-declaration]
+     while(fread(&record, hashHeader.iRecSize, 1L, pHash)==1)
+     ^
+cs3743p1Driver.c:308:18: error: ‘record’ undeclared (first use in this function)
+     while(fread(&record, hashHeader.iRecSize, 1L, pHash)==1)
+                  ^
+cs3743p1Driver.c:270:19: warning: unused parameter ‘szHashContent’ [-Wunused-parameter]
+ int hashDump(char szHashContent[], char szFileNm[])
+                   ^
+cs3743p1Driver.c: In function ‘printBook’:
+cs3743p1Driver.c:333:12: error: ‘Book’ has no member named ‘szBookId’
+     , pBook->szBookId
+            ^
+cs3743p1Driver.c:334:12: error: ‘Book’ has no member named ‘szPublisher’
+     , pBook->szPublisher
+            ^
+cs3743p1Driver.c:335:12: error: ‘Book’ has no member named ‘szSubject’
+     , pBook->szSubject
+            ^
+cs3743p1Driver.c:336:12: error: ‘Book’ has no member named ‘iPages’
+     , pBook->iPages
+            ^
+cs3743p1Driver.c:337:12: error: ‘Book’ has no member named ‘szTitle’
+     , pBook->szTitle);
+            ^
+cs3743p1Driver.c: In function ‘printRC’:
+cs3743p1Driver.c:350:29: error: expected expression before ‘/’ token
+     char *pszMsg;           // pointer to an error message
+                             ^
+cs3743p1Driver.c:351:29: error: expected expression before ‘/’ token
+     char szBuf[100];        // buffer for building an error message
+                             ^
+cs3743p1Driver.c:350:11: warning: unused variable ‘pszMsg’ [-Wunused-variable]
+     char *pszMsg;           // pointer to an error message
+           ^
+cs3743p1Driver.c:348:18: warning: unused parameter ‘rc’ [-Wunused-parameter]
+ void printRC(int rc)
+                  ^
+cs3743p1Driver.c: In function ‘getSimpleToken’:
+cs3743p1Driver.c:417:41: error: expected expression before ‘/’ token
+     int iDelimPos;                      // found position of delim
+                                         ^
+cs3743p1Driver.c:418:41: error: expected expression before ‘/’ token
+     int iCopy;                          // number of characters to copy
+                                         ^
+cs3743p1Driver.c:430:5: error: expected expression before ‘/’ token
+     // see if we have more characters than target token, if so, trunc
+     ^
+cs3743p1Driver.c:432:45: error: expected expression before ‘/’ token
+         iCopy = MAX_TOKEN_SIZE;             // truncated size
+                                             ^
+cs3743p1Driver.c:436:5: error: expected expression before ‘/’ token
+     // copy the token into the target token variable
+     ^
+cs3743p1Driver.c:438:13: error: ‘iCopy’ undeclared (first use in this function)
+     szToken[iCopy] = '\0';              // null terminate
+             ^
+cs3743p1Driver.c:438:41: error: expected expression before ‘/’ token
+     szToken[iCopy] = '\0';              // null terminate
+                                         ^
+cs3743p1Driver.c:417:9: warning: unused variable ‘iDelimPos’ [-Wunused-variable]
+     int iDelimPos;                      // found position of delim
+         ^
+cs3743p1Driver.c:415:35: warning: parameter ‘szToken’ set but not used [-Wunused-but-set-parameter]
+     , int *piBufferPosition, char szToken[])
+                                   ^
+cs3743p1Driver.c:414:25: warning: unused parameter ‘szInput’ [-Wunused-parameter]
+ int getSimpleToken(char szInput[], const char szDelims[]
+                         ^
+cs3743p1Driver.c:414:47: warning: unused parameter ‘szDelims’ [-Wunused-parameter]
+ int getSimpleToken(char szInput[], const char szDelims[]
+                                               ^
+cs3743p1Driver.c:415:12: warning: unused parameter ‘piBufferPosition’ [-Wunused-parameter]
+     , int *piBufferPosition, char szToken[])
+            ^
+cs3743p1Driver.c: In function ‘errExit’:
+cs3743p1Driver.c:469:33: error: expected expression before ‘/’ token
+     va_list args;               // This is the standard C variable argument list type
+                                 ^
+cs3743p1Driver.c:470:33: error: expected expression before ‘/’ token
+     va_start(args, szFmt);      // This tells the compiler where the variable arguments
+                                 ^
+cs3743p1Driver.c:473:33: error: expected expression before ‘/’ token
+     vprintf(szFmt, args);       // vprintf receives a printf format string and  a
+                                 ^
+cs3743p1Driver.c:475:33: error: expected expression before ‘/’ token
+     va_end(args);               // let the C environment know we are finished with the
+                                 ^
+In file included from cs3743p1.c:7:0:
+cs3743p1.h:34:1: error: expected identifier or ‘(’ before ‘/’ token
+ // HashHeader structure for record at RBN 0. 
+ ^
+cs3743p1.h:43:48: warning: missing terminating ' character [enabled by default]
+                             // area.  (This isn't the number of
+                                                ^
+cs3743p1.h:43:29: error: missing terminating ' character
+                             // area.  (This isn't the number of
+                             ^
+cs3743p1.h:51:3: warning: data definition has no type or storage class [enabled by default]
+ } HashHeader;
+   ^
+cs3743p1.h:51:3: warning: type defaults to ‘int’ in declaration of ‘HashHeader’ [-Wimplicit-int]
+cs3743p1.h:54:29: error: expected specifier-qualifier-list before ‘/’ token
+     int  iNextChain;        // RBN of next synonym
+                             ^
+cs3743p1.h:63:1: error: expected identifier or ‘(’ before ‘/’ token
+ // Driver functions that the student can use
+ ^
+cs3743p1.h:65:24: error: expected declaration specifiers or ‘...’ before ‘HashHeader’
+ int hash(char szKey[], HashHeader *pHashHeader);
+                        ^
+cs3743p1.h:69:1: error: expected identifier or ‘(’ before ‘/’ token
+ // Functions written by the student
+ ^
+cs3743p1.h:71:33: error: expected declaration specifiers or ‘...’ before ‘HashHeader’
+ FILE *hashOpen(char szFileNm[], HashHeader *pHashHeader);
+                                 ^
+cs3743p1.h:74:29: error: expected declaration specifiers or ‘...’ before ‘HashHeader’
+ int bookInsert(FILE *pFile, HashHeader *pHashHeader, Book *pBook);
+                             ^
+cs3743p1.h:75:27: error: expected declaration specifiers or ‘...’ before ‘HashHeader’
+ int bookRead(FILE *pFile, HashHeader *pHashHeader, Book *pBook);
+                           ^
+cs3743p1.c:12:33: error: expected declaration specifiers or ‘...’ before ‘HashHeader’
+ int hashCreate(char szFileNm[], HashHeader *pHashHeader){
+                                 ^
+cs3743p1.c:40:1: error: expected identifier or ‘(’ before ‘/’ token
+ //opens the hash file specified
+ ^
+In file included from cs3743p1.c:7:0:
+cs3743p1.c: In function ‘readRec’:
+cs3743p1.h:27:34: error: expected expression before ‘/’ token
+ #define RC_LOC_NOT_FOUND    6   // Location not found for read
+                                  ^
+cs3743p1.c:72:10: note: in expansion of macro ‘RC_LOC_NOT_FOUND’
+   return RC_LOC_NOT_FOUND;
+          ^
+cs3743p1.c:62:55: warning: unused parameter ‘iRecSize’ [-Wunused-parameter]
+ int readRec(FILE *pFile, int iRBN, void *pRecord, int iRecSize){
+                                                       ^
+cs3743p1.c: In function ‘writeRec’:
+cs3743p1.c:79:20: warning: unused parameter ‘pFile’ [-Wunused-parameter]
+ int writeRec(FILE *pFile, int iRBN, void *pRecord, int iRecSize){
+                    ^
+cs3743p1.c:79:31: warning: unused parameter ‘iRBN’ [-Wunused-parameter]
+ int writeRec(FILE *pFile, int iRBN, void *pRecord, int iRecSize){
+                               ^
+cs3743p1.c:79:43: warning: unused parameter ‘pRecord’ [-Wunused-parameter]
+ int writeRec(FILE *pFile, int iRBN, void *pRecord, int iRecSize){
+                                           ^
+cs3743p1.c:79:56: warning: unused parameter ‘iRecSize’ [-Wunused-parameter]
+ int writeRec(FILE *pFile, int iRBN, void *pRecord, int iRecSize){
+                                                        ^
+cs3743p1.c: At top level:
+cs3743p1.c:84:29: error: expected declaration specifiers or ‘...’ before ‘HashHeader’
+ int bookInsert(FILE *pFile, HashHeader *pHashHeader, Book *pBook){
+                             ^
+cs3743p1.c:89:27: error: expected declaration specifiers or ‘...’ before ‘HashHeader’
+ int bookRead(FILE *pFile, HashHeader *pHashHeader, Book *pBook){
+                           ^
+cs3743p1.c: In function ‘readRec’:
+cs3743p1.c:77:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
