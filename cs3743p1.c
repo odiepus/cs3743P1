@@ -13,7 +13,7 @@ int hashCreate(char szFileNm[], HashHeader *pHashHeader){
   int iWriteToHash;
   FILE *pHashFile;
 
-  pHashFile = fopen(szFileNm, "r");
+  pHashFile = fopen(szFileNm, "rb");
 
   if (pHashFile == NULL){
     pHashFile = fopen(szFileNm, "wb+");
@@ -23,8 +23,6 @@ int hashCreate(char szFileNm[], HashHeader *pHashHeader){
     }
 
     pHashHeader->iHighOverflowRBN = pHashHeader->iNumPrimary;
-    rcFseek = fseek(pHashFile, 0, SEEK_SET);
-    assert(rcFseek == 0);
 
     iWriteToHash = fwrite(&pHashHeader, sizeof(HashHeader), 1L, pHashFile);
     assert(iWriteToHash == 1);
@@ -34,6 +32,7 @@ int hashCreate(char szFileNm[], HashHeader *pHashHeader){
     return RC_OK;
   }
 
+  fclose(pHashFile);
   return RC_FILE_EXISTS;
 }
 
@@ -43,22 +42,17 @@ FILE *hashOpen(char szFileNm[], HashHeader *pHashHeader){
   int iReadHeader;
   FILE *pHashOpenFile;
 
-  pHashOpenFile = fopen(szFileNm, "r");
+  pHashOpenFile = fopen(szFileNm, "rb");
 
   if (pHashOpenFile == NULL){
     return NULL;
   }
 
-  rcFseek = fseek(pHashOpenFile, 0, SEEK_SET);
-  assert(rcFseek == 0);
-
   iReadHeader = fread(&pHashHeader, sizeof(HashHeader), 1L, pHashOpenFile);
   if(iReadHeader == 1){
     return pHashOpenFile;
   }
-  else{
-    return NULL;
-  }
+  return NULL;
 }
 
 int readRec(FILE *pFile, int iRBN, void *pRecord, int iRecSize){
