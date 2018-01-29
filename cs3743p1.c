@@ -38,7 +38,6 @@ int hashCreate(char szFileNm[], HashHeader *pHashHeader){
 //opens the hash file specified
 FILE *hashOpen(char szFileNm[], HashHeader *pHashHeader){
   int iReadHeader;
-  HashHeader *pTempHeader;
   FILE *pHashOpenFile;
 
   pHashOpenFile = fopen(szFileNm, "rb");
@@ -47,8 +46,7 @@ FILE *hashOpen(char szFileNm[], HashHeader *pHashHeader){
     return NULL;
   }
 
-  iReadHeader = fread(&pTempHeader, sizeof(HashHeader), 1L, pHashOpenFile);
-  *pHashHeader = *pTempHeader;
+  iReadHeader = fread(pHashHeader, sizeof(HashHeader), 1L, pHashOpenFile);
   if(iReadHeader == 1){
     return pHashOpenFile;
   }
@@ -72,11 +70,28 @@ int readRec(FILE *pFile, int iRBN, void *pRecord, int iRecSize){
 }
 
 int writeRec(FILE *pFile, int iRBN, void *pRecord, int iRecSize){
+  int rcFseek;
+  int iWriteToHashFile;
 
-  return 0;
+  rcFseek = fseek(pFile, iRBN, SEEK_SET);
+  iWriteToHashFile = fwrite(&pRecord, sizeof(pRecord), 1L, pFile);
+  if (iWriteToHashFile != 1){
+    return RC_LOC_NOT_WRITTEN;
+  }
+  return RC_OK;
 }
 
+
 int bookInsert(FILE *pFile, HashHeader *pHashHeader, Book *pBook){
+  int iRBN = hash(pBook->szBookId, pHashHeader);
+  int rcFseek = fseek(&pHashHeader, iRBN, SEEK_SET);
+  int iReadHashFile = fread(&pHashHeader, sizeof(HashHeader), 1L, pFile);
+
+  if ()
+  int iWriteToHashFile = fwrite(&pHashHeader, sizeof(HashHeader), 1L, pFile);
+
+  
+
 
   return 0;
 }
