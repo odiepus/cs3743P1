@@ -32,6 +32,9 @@ int main(int argc, char *argv[]){
         return 0;
       }
     }
+    else if(strcmp(input, "INSERT") == 0){
+      char *insertBook = "JOYPGM001,"
+    }
   }
   return 0;
 }
